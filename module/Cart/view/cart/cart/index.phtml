@@ -1,0 +1,21 @@
+<?php
+$title = 'Shopping Cart';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<table class="table">
+    <tr>
+        <th class="col-md-10">Title</th>
+        <th class="col-md-10">Qty.</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($cart->getItems() as $item): ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($item['product']->title); ?></td>
+            <td><?php echo $this->escapeHtml($item['qty']); ?></td>
+            <td>
+                <a class="btn btn-danger" href="<?php echo $this->url('cart', array('action' => 'delete', 'id' => $item['product']->id)); ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
