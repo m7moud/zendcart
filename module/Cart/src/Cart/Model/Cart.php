@@ -1,6 +1,7 @@
 <?php
 
 namespace Cart\Model;
+
 use Zend\Session\Container;
 
 class Cart {
@@ -26,6 +27,9 @@ class Cart {
             'product' => $product,
             'qty' => $qty
         );
+        if (!empty($this->_items[$product->id])) {
+            (int) $item['qty'] += (int) $this->_items[$product->id]['qty'];
+        }
         $this->_items[$product->id] = $item;
         $this->persist();
         return $item;
