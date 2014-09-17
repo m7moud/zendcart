@@ -4,23 +4,27 @@ $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <p>
-    <a href="<?php echo $this->url('product', array('action' => 'add')); ?>">Add new product</a>
+    <a class="btn btn-success btn-lg" href="<?php echo $this->url('product', array('action' => 'add')); ?>">Add new product</a>
 </p>
-<table class="table">
-    <tr>
-        <th class="col-md-4">Title</th>
-        <th class="col-md-5">Description</th>
-        <th>&nbsp;</th>
-    </tr>
-    <?php foreach ($products as $product) : ?>
+<table class="table table-hover">
+    <thead>
         <tr>
-            <td><?php echo $this->escapeHtml($product->title); ?></td>
-            <td><?php echo $this->escapeHtml($product->description); ?></td>
-            <td>
-                <a class="btn btn-primary" href="<?php echo $this->url('cart', array('action' => 'add', 'id' => $product->id)); ?>">Add to Cart</a>
-                <a class="btn btn-default" href="<?php echo $this->url('product', array('action' => 'edit', 'id' => $product->id)); ?>">Edit</a>
-                <a class="btn btn-default" href="<?php echo $this->url('product', array('action' => 'delete', 'id' => $product->id)); ?>">Delete</a>
-            </td>
+            <th class="col-md-4">Title</th>
+            <th class="col-md-5">Description</th>
+            <th>&nbsp;</th>
         </tr>
-    <?php endforeach; ?>
+    </thead>
+    <tbody>
+        <?php foreach ($products as $product) : ?>
+            <tr>
+                <td><?php echo $this->escapeHtml($product->title); ?></td>
+                <td><?php echo $this->escapeHtml($product->description); ?></td>
+                <td>
+                    <a class="btn btn-primary" href="<?php echo $this->url('cart', array('action' => 'add', 'id' => $product->id)); ?>">Add to Cart</a>
+                    <a class="btn btn-default" href="<?php echo $this->url('product', array('action' => 'edit', 'id' => $product->id)); ?>">Edit</a>
+                    <a class="btn btn-default" href="<?php echo $this->url('product', array('action' => 'delete', 'id' => $product->id)); ?>">Delete</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
 </table>

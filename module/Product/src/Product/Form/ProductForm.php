@@ -18,6 +18,10 @@ class ProductForm extends Form {
             'options' => array(
                 'label' => 'Title',
             ),
+            'attributes' => array(
+                'id' => 'title',
+                'class' => 'form-control',
+            )
         ));
         $this->add(array(
             'name' => 'description',
@@ -25,6 +29,10 @@ class ProductForm extends Form {
             'options' => array(
                 'label' => 'Description',
             ),
+            'attributes' => array(
+                'id' => 'description',
+                'class' => 'form-control',
+            )
         ));
         $this->add(array(
             'name' => 'submit',
@@ -32,6 +40,7 @@ class ProductForm extends Form {
             'attributes' => array(
                 'value' => 'Go',
                 'id' => 'submitbutton',
+                'class' => 'btn btn-default',
             ),
         ));
     }
